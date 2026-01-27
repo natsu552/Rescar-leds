@@ -1,0 +1,201 @@
+/* ===== Reset e básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Fundo escurecido */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url('../img/background.jpg') no-repeat center center / cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 0;
+}
+
+/* Conteúdo central */
+.content {
+  position: relative;
+  z-index: 1;
+  margin-top: 50px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Logo */
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid #FF7700;
+  object-fit: cover;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* Título e descrição */
+h1 {
+  font-size: 26px;
+  color: #FF7700;
+  margin-bottom: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* ===== Botões estilo card ===== */
+.link-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  min-height: 90px; /* TRAVA a altura dos botões */
+  margin: 12px 0;
+  padding: 15px;
+  background-color: #FF7700;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+  background-color: #e65c00;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+}
+
+/* Área da imagem dentro do botão */
+.btn-img {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagem padrão dos botões */
+.btn-img img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* IMAGEM MAIOR (somente Polos LEDs) */
+.btn-img img.img-maior {
+  width: 85px;
+  height: auto;
+}
+
+/* Texto do botão */
+.btn-text {
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+}
+
+/* ===== Responsivo ===== */
+@media screen and (max-width: 420px) {
+  .content {
+    padding: 30px 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .link-btn {
+    font-size: 16px;
+    padding: 12px;
+    min-height: 85px;
+  }
+
+  .btn-img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .btn-img img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .btn-img img.img-maior {
+    width: 75px;
+  }
+}
+/* Imagem específica - Lâmpadas DS LEDs */
+.btn-img img.img-ds {
+  width: 75px;   /* AUMENTA ou DIMINUI aqui */
+  height: auto;
+}/* ===== ANIMAÇÃO GLOBAL PARA TODOS OS CARDS ===== */
+.p-card,
+.link-btn,
+.product-card,
+.card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Efeito ao passar o mouse */
+.p-card:hover,
+.link-btn:hover,
+.product-card:hover,
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 119, 0, 0.6);
+}/* ===== ANIMAÇÃO DE ENTRADA ===== */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}

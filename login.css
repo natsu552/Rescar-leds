@@ -1,0 +1,92 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fundo da página */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container central */
+.login-container {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Caixa do login */
+.login-box {
+    max-width: 380px;
+    margin: auto;
+    background: #0f0f0f;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #222;
+    box-shadow: 0 0 25px rgba(255, 119, 0, 0.15);
+    text-align: center;
+}
+
+/* Logo */
+.login-box h1 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.login-box h1 span {
+    color: #FF7700;
+}
+
+/* Inputs */
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Input foco */
+.login-box input:focus {
+    outline: none;
+    border-color: #FF7700;
+}
+
+/* Botão */
+.btn-gold {
+    width: 100%;
+    padding: 14px;
+    background: #FF7700;
+    border: none;
+    border-radius: 6px;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-gold:active {
+    transform: scale(0.97);
+}
+
+.btn-gold:hover {
+    opacity: 0.9;
+}
+
+/* Erro */
+#login-error {
+    margin-top: 12px;
+    font-size: 14px;
+    color: red;
+}
