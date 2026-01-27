@@ -1,0 +1,16 @@
+const PRODUTOS = {
+  colorphone: [
+    { id: 1, nome: "LED ColorPhone H4", preco: 298.80, img: "https://via.placeholder.com/300" },
+    { id: 2, nome: "LED ColorPhone H7", preco: 298.80, img: "https://via.placeholder.com/300" }
+  ],
+  rescar: [
+    { id: 3, nome: "LED RESCAR H1", preco: 259.90, img: "https://via.placeholder.com/300" },
+    { id: 4, nome: "LED RESCAR H11", preco: 259.90, img: "https://via.placeholder.com/300" }
+  ]
+};
+
+// carrega do localStorage se existir
+const SALVO = localStorage.getItem("produtos");
+if (SALVO) {
+  Object.assign(PRODUTOS, JSON.parse(SALVO));
+}
