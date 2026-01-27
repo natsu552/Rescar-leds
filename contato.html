@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - RESCAR LEDS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --laranja: #ff6600; }
+        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; text-align: center; }
+        
+        header { background: #111; padding: 15px; border-bottom: 1px solid #222; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+        .btn-voltar { color: var(--laranja); text-decoration: none; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 5px; border: 1px solid var(--laranja); padding: 5px 12px; border-radius: 5px; }
+
+        .container { padding: 40px 20px; }
+        .logo-contato { font-size: 28px; font-weight: bold; margin-bottom: 5px; }
+        .logo-contato span { color: var(--laranja); }
+        .sub-titulo { color: #888; font-size: 14px; margin-bottom: 40px; letter-spacing: 1px; }
+
+        /* Estilo dos Cards de Contato */
+        .contato-link {
+            display: flex;
+            align-items: center;
+            background: #111;
+            border: 1px solid #222;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+        }
+        .contato-link:active { transform: scale(0.96); background: #1a1a1a; border-color: var(--laranja); }
+        
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .bg-whatsapp { background: #25d366; }
+        .bg-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .bg-telefone { background: var(--laranja); }
+
+        .texto-contato { text-align: left; }
+        .texto-contato h3 { margin: 0; font-size: 18px; font-weight: bold; }
+        .texto-contato p { margin: 2px 0 0; font-size: 12px; color: #777; }
+
+        .footer-info { margin-top: 60px; padding: 20px; border-top: 1px solid #222; }
+        .footer-info p { font-size: 13px; color: #555; margin: 8px 0; }
+        .footer-info i { color: var(--laranja); margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../index.html" class="btn-voltar"><i class="fa-solid fa-arrow-left"></i> VOLTAR</a>
+        <div style="font-weight: bold; font-size: 14px;">CENTRAL DE ATENDIMENTO</div>
+        <div style="width: 70px;"></div>
+    </header>
+
+    <div class="container">
+        <div class="logo-contato">RESCAR <span>LEDS</span></div>
+        <p class="sub-titulo">FALE DIRETAMENTE CONOSCO</p>
+
+        <a href="https://wa.me/556283250793" target="_blank" class="contato-link">
+            <div class="icon-circle bg-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="texto-contato">
+                <h3>WhatsApp Oficial</h3>
+                <p>Orçamentos e dúvidas técnicas</p>
+            </div>
+        </a>
+
+        <a href="https://www.instagram.com/rescarleds" target="_blank" class="contato-link">
+            <div class="icon-circle bg-instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="texto-contato">
+                <h3>Instagram</h3>
+                <p>@rescarleds</p>
+            </div>
+        </a>
+
+        <a href="tel:556283250793" class="contato-link">
+            <div class="icon-circle bg-telefone">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="texto-contato">
+                <h3>Telefone para Contato</h3>
+                <p>Ligação imediata para vendas</p>
+            </div>
+        </a>
+
+        <div class="footer-info">
+            <p><i class="fa-solid fa-location-dot"></i> Goianésia - Estado de Goiás</p>
+            <p><i class="fa-solid fa-clock"></i> Segunda a Sexta: 08h às 18h</p>
+            <p style="margin-top: 20px; color: #333; font-size: 11px;">&copy; 2024 RESCAR LEDS</p>
+        </div>
+    </div>
+
+</body>
+</html>

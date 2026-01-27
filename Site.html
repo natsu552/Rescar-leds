@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESCAR - Loja Oficial</title>
+    <link rel="stylesheet" href="../css/Rescar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-black">
+
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <div id="sideMenu" class="sidebar">
+        <div class="sidebar-header">
+            <span>MENU</span>
+            <i class="fa-solid fa-xmark" onclick="toggleMenu()"></i>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="menu-section">
+                <span class="menu-title">Categorias</span>
+                <a href="ledcolor.html"><span>LED RESCAR COLORPHONE 📲</span></a>
+                <a href="ledrescar.html"><span>LED RESCAR</span></a>
+                <a href="ledpingo.html"><span>Pingo / Torpedo</span></a>
+                <a href="lampadas-ds.html"><span>LEDS DS</span></a>
+                <a href="lampadas-polos.html"><span>LEDS DE POLOS</span></a>
+            </div>
+            <div class="menu-section">
+                <span class="menu-title">Contato</span>
+                <a href="contato.html"><span>Contato / Suporte</span></a>
+                <a href="localizacao.html"><span>Localização</span></a>
+                <a href="login.html"><span>login</span></a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="top-pix">💎 Pague com PIX e ganhe 5% de desconto</div>
+
+    <header class="header-black">
+        <div class="header-container">
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="logo">RES<span>CAR</span></div>
+            <div class="cart" style="color:#FF7700">🛒 <span id="cart-count">0</span></div>
+        </div>
+    </header>
+
+    <section class="main-banner">
+        <div class="banner-content">
+            <h1>LED RESCAR <span class="orange">COLORPHONE📲</span></h1>
+            <p class="sub">O PREFERIDO DE QUEM VIAJA A NOITE</p>
+            <a href="ledcolor.html"><button class="btn-gold">COMPRAR AGORA</button></a>
+        </div>
+    </section>
+
+    <section class="visual-categories">
+        <div class="cat-item item-kia">
+            <div class="cat-overlay"><h2>SUPER LED<br>ULTRALED</h2></div>
+        </div>
+        <div class="cat-item item-corolla">
+            <div class="cat-overlay"><h2>LED PINGO<br>TORPEDO</h2></div>
+        </div>
+    </section>
+
+    <section class="shelf">
+        <h2 class="shelf-title">Lançamentos</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                
+                <div class="p-card">
+                    <div class="tag">12% OFF</div>
+                    <img src="img/ledrescar.png" alt="LED Colorphone">
+                    <h3>LED RESCAR COLORPHONE📲</h3>
+                    <p class="p-price">R$ 298,80</p>
+                    <a href="ledcolor.html" class="btn-add">Ver</a>
+                </div>
+
+                <div class="p-card">
+                    <div class="tag">6% OFF</div>
+                    <img src="img/ledrescar.png" alt="LED Rescar">
+                    <h3>LED RESCAR PREMIUM</h3>
+                    <p class="p-price">R$ 597,60</p>
+                    <a href="ledrescar.html" class="btn-add">Ver</a>
+                </div>
+
+                <div class="p-card">
+                    <div class="tag">10% OFF</div>
+                    <img src="img/pingo.png" alt="Led Pingo">
+                    <h3>Led Pingo / Torpedo</h3>
+                    <p class="p-price">R$ 120,00</p>
+                    <a href="ledpingo.html" class="btn-add">Ver</a>
+                </div>
+
+                <div class="p-card">
+                    <div class="tag">NOVO</div>
+                    <img src="img/lampadas-polos.png" alt="Polos LEDs">
+                    <h3>Lâmpadas de Polos LEDs</h3>
+                    <p class="p-price">R$ 149,90</p>
+                    <a href="lampadas-polos.html" class="btn-add">Ver</a>
+                </div>
+
+                <div class="p-card">
+                    <div class="tag">NOVO</div>
+                    <img src="img/lampadas-ds.png" alt="DS LEDs">
+                    <h3>Lâmpadas DS LEDs</h3>
+                    <p class="p-price">R$ 189,90</p>
+                    <a href="lampadas-ds.html" class="btn-add">Ver</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<div class="social-section">
+    <span class="social-title">CONTATO & REDES</span>
+    <div class="social-flex">
+        <a href="https://wa.me/556283250793" target="_blank" class="social-btn whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+        <a href="https://www.instagram.com/rescarleds" target="_blank" class="social-btn instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+</div>
+
+  <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".p-card, .link-btn").forEach(el => {
+  el.classList.add("animate");
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

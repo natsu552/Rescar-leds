@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | RESCAR Auto Elétrica</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+        }
+
+        /* HEADER */
+        .header {
+            background: #111;
+            padding: 15px;
+            border-bottom: 2px solid #FF7700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header span {
+            color: #FF7700;
+        }
+
+        /* CONTEÚDO */
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #FF7700;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-left: 4px solid #FF7700;
+            padding-left: 10px;
+        }
+
+        .section p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card i {
+            font-size: 28px;
+            color: #FF7700;
+        }
+
+        .card h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0a0a0a;
+            padding: 20px;
+            text-align: center;
+            font-size: 11px;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>RESCAR <span>Auto Elétrica</span></h1>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <!-- QUEM SOMOS -->
+        <section class="section">
+            <h2>Quem Somos</h2>
+            <p>
+                A <strong>Rescar Auto Elétrica</strong> é especializada em soluções automotivas,
+                oferecendo produtos e serviços de alta qualidade em iluminação e elétrica veicular.
+                Trabalhamos com foco total em segurança, desempenho e confiança.
+            </p>
+        </section>
+
+        <!-- NOSSA MISSÃO -->
+        <section class="section">
+            <h2>Nossa Missão</h2>
+            <p>
+                Levar aos nossos clientes produtos confiáveis, modernos e eficientes,
+                garantindo a melhor experiência em iluminação automotiva,
+                sempre com atendimento honesto e especializado.
+            </p>
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section class="section">
+            <h2>Por que escolher a Rescar?</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                        <h3>Especialistas em LED</h3>
+                        <p>Trabalhamos com LED premium, alto desempenho e longa durabilidade.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h3>Qualidade Garantida</h3>
+                        <p>Produtos testados e aprovados para garantir sua segurança.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <h3>Atendimento de Confiança</h3>
+                        <p>Suporte direto, rápido e transparente com nossos clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL -->
+        <section class="section">
+            <h2>Rescar Auto Elétrica</h2>
+            <p>
+                Estamos localizados em Goianésia/GO e prontos para atender você com
+                profissionalismo e dedicação.
+                Seu carro merece o melhor.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© Rescar Auto Elétrica — Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | RESCAR LEDS</title>
+
+    <!-- CSS do login -->
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <!-- Container central -->
+    <div class="login-container">
+
+        <!-- Caixa de login -->
+        <div class="login-box">
+
+            <!-- Logo -->
+            <h1>RESCAR <span>LEDS</span></h1>
+
+            <!-- Formulário -->
+            <form id="login-form">
+
+                <!-- Email -->
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                >
+
+                <!-- Senha -->
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Senha"
+                    required
+                >
+
+                <!-- Botão -->
+                <button type="submit" class="btn-gold">
+                    ENTRAR
+                </button>
+
+            </form>
+
+            <!-- Erro -->
+            <p id="login-error"></p>
+
+        </div>
+    </div>
+
+    <!-- JS do login -->
+    <script type="module" src="../js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESCAR LEDS - Oficial</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#000;color:#fff;padding-bottom:100px; overflow-x: hidden;}
+
+/* HEADER */
+.main-header{
+    background:#111;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #222;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+.logo-text{font-size:20px;font-weight:bold}
+.logo-text span{color:#FF7700}
+.header-icons i{font-size:22px;cursor:pointer;margin-left:15px}
+
+/* GRID PRODUTOS */
+.grid-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:12px;
+}
+.product-item{
+    background:#111;
+    border:1px solid #222;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+}
+.product-item img{
+    width:100%;
+    border-radius:6px;
+    margin-bottom:8px;
+}
+.item-title{
+    font-size:13px;
+    height:34px;
+    overflow:hidden;
+}
+.price-now{
+    color:#fff;
+    font-weight:bold;
+    font-size:17px;
+    margin:6px 0;
+}
+.btn-buy{
+    background:#FF7700;
+    color: #fff;
+    border:none;
+    padding:12px;
+    width:100%;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    text-transform: uppercase;
+}
+.btn-buy:active{transform:scale(.96)}
+
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-280px;
+    width:280px;
+    height:100%;
+    background:#000;
+    padding:20px;
+    transition:.3s;
+    z-index:1001;
+    border-right:1px solid #FF7700;
+}
+.sidebar.active{left:0}
+.sidebar-header{
+    display:flex;
+    justify-content:space-between;
+    color:#FF7700;
+    margin-bottom:20px;
+}
+.menu-section { margin-bottom: 25px; }
+.menu-title {
+    display: block;
+    color: #FF7700;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 6px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+.sidebar-nav a span { font-size: 14px; font-weight: bold; }
+
+/* OVERLAY */
+#overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:none;
+    z-index:1000;
+}
+#overlay.active{display:block}
+
+/* CARRINHO */
+#side-cart {
+    position: fixed; right: -320px; top: 0; width: 300px; height: 100%;
+    background: #0d0d0d; padding: 20px; transition: .3s; z-index: 1002;
+    display: flex; flex-direction: column;
+}
+#side-cart.open { right: 0; }
+.cart-header { display: flex; justify-content: space-between; border-bottom: 1px solid #222; padding-bottom: 15px; margin-bottom: 15px; }
+#cart-items-list { flex: 1; overflow-y: auto; }
+.cart-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1a1a1a; font-size: 13px; }
+
+.btn-checkout { background: #28a745; color: #fff; border: none; padding: 16px; width: 100%; margin-top: 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+/* SEÇÃO SOCIAL CENTRALIZADA */
+.social-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0;
+    background-color: #000; /* Fundo preto para combinar com o site */
+}
+
+.social-title {
+    color: #555;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.social-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaço entre as bolinhas */
+}
+
+.social-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.social-btn.whatsapp {
+    background: #25d366;
+}
+
+.social-btn.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.social-btn:active {
+    transform: scale(0.9); /* Efeito de clique */
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="main-header">
+    <div class="header-icons"><i class="fa-solid fa-bars" onclick="toggleMenu()"></i></div>
+    <h1 class="logo-text">RESCAR <span>LEDS</span></h1>
+    <div class="header-icons" onclick="toggleCart()" style="position:relative">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count" style="background:#FF7700;color:#000;border-radius:50%;width:18px;height:18px;font-size:11px;display:flex;align-items:center;justify-content:center;position:absolute;top:-6px;right:-6px">0</span>
+    </div>
+</header>
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <strong>MENU PRINCIPAL</strong>
+        <i class="fa-solid fa-xmark" onclick="toggleMenu()"></i>
+                </div>
+        <nav class="sidebar-nav">
+            <div class="menu-section">
+       <a href="siteoficial.html"><span>INICIO</span></a>
+       
+                <span class="menu-title">Categorias</span>
+                
+       <a href="ledcolor.html"><span>LED RESCAR COLORPHONE 📲</span></a>
+      <a href="ledrescar.html"><span>LED RESCAR</span></a>
+        <a href="ledpingo.html"><span>Pingo / Torpedo</span></a>
+                <a href="lampadas-ds.html"><span>LEDS DS</span></a>
+       <a href="lampadas-polos.html"><span>LEDS DE POLOS</span></a>
+            </div>
+            <div class="menu-section">
+                <span class="menu-title">Contato</span>
+        <a href="contato.html"><span>Contato / Suporte</span></a>
+        <a href="localizacao.html"><span>Localização</span></a>
+                        <a href="login.html"><span>login</span></a>
+            </div>
+        </nav>
+    </div>
+    
+<div id="overlay" onclick="fecharTudo()"></div>
+
+<div id="side-cart">
+    <div class="cart-header">
+        <strong>MEU CARRINHO</strong>
+        <i class="fa-solid fa-xmark" onclick="toggleCart()" style="cursor:pointer"></i>
+    </div>
+    <div id="cart-items-list"></div>
+    <div style="padding-top: 15px; border-top: 1px solid #222;">
+        <div style="display:flex; justify-content:space-between; font-weight:bold;">
+            <span>TOTAL:</span> <span id="cart-total-value">R$ 0,00</span>
+        </div>
+        <button class="btn-checkout" onclick="irParaCheckout()">FINALIZAR COMPRA</button>
+    </div>
+</div>
+
+<main class="grid-layout" id="produtos-container"></main>
+
+<div class="social-section">
+    <span class="social-title">CONTATO & REDES</span>
+    <div class="social-flex">
+        <a href="https://wa.me/556283250793" target="_blank" class="social-btn whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/rescarleds" target="_blank" class="social-btn instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+</div>
+
+
+<script>
+let cart = [];
+const modelos=['H1','H4','H7','H11','H8','H9','HB3','HB4'];
+const container=document.getElementById('produtos-container');
+
+function renderizar(){
+    modelos.forEach(m=>{
+        container.innerHTML+=`
+        <div class="product-item">
+            <img src="ledrescar.png">
+            <h3 class="item-title">Kit LED RESCAR COLORPHONE📲 - ${m}</h3>
+            <span class="price-now">R$ 298,80</span>
+            <button class="btn-buy" onclick="addToCart('${m}', 298.80)">Comprar</button>
+        </div>`
+    });
+}
+
+function toggleMenu(){
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+}
+
+function toggleCart(){
+    document.getElementById('side-cart').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('active');
+}
+
+function fecharTudo(){
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('side-cart').classList.remove('open');
+    document.getElementById('overlay').classList.remove('active');
+}
+
+function addToCart(mod, preco) {
+    const item = cart.find(i => i.modelo === mod);
+    if(item) { item.qty++; } else { cart.push({modelo: mod, preco: preco, qty: 1}); }
+    updateCartUI();
+    toggleCart();
+}
+
+function updateCartUI() {
+    const list = document.getElementById('cart-items-list');
+    let total = 0; let count = 0;
+    list.innerHTML = "";
+    cart.forEach(i => {
+        total += (i.preco * i.qty); count += i.qty;
+        list.innerHTML += `<div class="cart-item">
+            <span>${i.qty}x Mod. ${i.modelo}</span>
+            <strong>R$ ${(i.preco * i.qty).toFixed(2).replace('.',',')}</strong>
+        </div>`;
+    });
+    document.getElementById('cart-count').innerText = count;
+    document.getElementById('cart-total-value').innerText = `R$ ${total.toFixed(2).replace('.',',')}`;
+}
+
+function irParaCheckout() {
+    if(cart.length === 0) return alert("Carrinho vazio!");
+    localStorage.setItem('rescar_cart', JSON.stringify(cart));
+    window.location.href = 'checkout.html';
+}
+
+window.onload = renderizar;
+</script>
+
+</body>
+</html>
+
